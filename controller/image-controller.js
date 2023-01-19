@@ -1,7 +1,9 @@
 import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const url = '';
+const url = `${process.env.PORT}`||'';
 
 
 let gfs, gridfsBucket;
