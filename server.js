@@ -12,15 +12,17 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin:["http://localhost:3000","https://coder-blog-mern.onrender.com"]
+}));
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', Router);
 
-if(process.env.NODE_ENV === 'production')
-{
-    app.use(express.static("client/build"));
-}
+// if(process.env.NODE_ENV === 'production')
+// {
+//     app.use(express.static("client/build"));
+// }
 
 const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
